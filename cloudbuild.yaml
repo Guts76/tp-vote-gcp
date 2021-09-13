@@ -17,7 +17,8 @@ steps:
         - 'europe-west3'
         - '--port'
         - '80'
-        - 'allow-unenthauticated'
+        # Autoriser les personnes non-authentifiées
+        - '--allow-unenthauticated'
 
     - name: 'gcr.io/cloud-builders/docker'
       id: B
@@ -35,7 +36,7 @@ steps:
         - 'europe-west3'
         - '--port'
         - '4000'
-        - 'allow-unauthenticated'
+        - '--allow-unauthenticated'
 
     - name: 'gcr.io/cloud-builders/docker'
       id: C
@@ -51,7 +52,7 @@ steps:
         - 'gcr.io/cellular-axon-325108/worker-jr:latest'
         - '--region'
         - 'europe-west3'
-        - 'allow-unauthenticated'
+        - '--allow-unauthenticated'
 
 
 # Push des images
