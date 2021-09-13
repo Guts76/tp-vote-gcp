@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    # COnstruction de l'image
+    args: ['build', '-t', 'gcr.io/cellular-axon-325108/result-jr:latest','./Result']
+  - name: 'gcr.io/cloud-builders/docker'
+    # COnstruction de l'image
+    args: ['build', '-t', 'gcr.io/cellular-axon-325108/vote-jr:latest','./vote']
+  - name: 'gcr.io/cloud-builders/docker'
+    # Construction de l'image
+    args: ['build', '-t', 'gcr.io/cellular-axon-325108/worker-jr:latest','./Worker']
+# Push de l'image
+images: ['gcr.io/cellular-axon-325108/result-jr:latest','gcr.io/cellular-axon-325108/vote-jr:latest','gcr.io/cellular-axon-325108/worker-jr:latest']
+
