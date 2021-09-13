@@ -27,11 +27,15 @@ gcloud builds submit
 
 4. Aller dans Cloud Run pour lancer des contenairs à partir des images construites (Option "Créer un service")
 
+5. Aller dans le "Cloud Build" et utiliser la fonction "Créer un déclencheur" afin de créer un trigger (Intégration continue)
+
 
 ## Notes
 [Container_Registery] : https://console.cloud.google.com/gcr/images/cellular-axon-325108?project=cellular-axon-325108
 
 [cloud_Run] : https://console.cloud.google.com/run?project=cellular-axon-325108
+
+[Cloud_Build] : https://console.cloud.google.com/cloud-build/triggers?project=cellular-axon-325108
 
 
 
