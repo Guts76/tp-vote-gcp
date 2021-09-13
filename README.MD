@@ -1,7 +1,7 @@
 # TP Terraform
 
 ## Description
-Création d'images
+Création d'images avec GCP pour le TP Vote.
 
 ## Prérequis
 1. VS Code
