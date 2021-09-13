@@ -1,8 +1,12 @@
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
-  name: worker-app
-  namespace: global-vote-app
+#   name: worker-app
+#   namespace: global-vote-app
+    name: service-worker-jules
+
 spec:
   selector:
     matchLabels:
@@ -14,10 +18,11 @@ spec:
     spec:
       containers:
       - name: worker-app
-        image: worker-app
+        #image: worker-app
+        image: gcr.io/cellular-axon-325108/worker-jr:latest
         imagePullPolicy: "IfNotPresent"
         resources:
           limits:
             memory: "128Mi"
             cpu: "100m"
-        
+

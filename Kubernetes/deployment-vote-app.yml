@@ -1,8 +1,12 @@
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
-  name: vote-app
-  namespace: global-vote-app
+  #name: vote-app
+  #namespace: global-vote-app
+  name: service-vote-jules
+
 spec:
   selector:
     matchLabels:
@@ -14,7 +18,8 @@ spec:
     spec:
       containers:
       - name: vote-app
-        image: vote-app
+        #image: vote-app
+        image: gcr.io/cellular-axon-325108/vote-jr:latest
         imagePullPolicy: "IfNotPresent"
         resources:
           limits:

@@ -1,8 +1,12 @@
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
-  name: result-app
-  namespace: global-vote-app
+  #name: result-app
+  name: service-result-jules
+  #namespace: global-vote-app
+
 spec:
   # replicas: 1
   selector:
@@ -15,7 +19,8 @@ spec:
     spec:
       containers:
       - name: result-app
-        image: result-app
+        #image: result-app ==> Besoin de chercher l'image sur GCP
+        image: gcr.io/cellular-axon-325108/result-jr:latest
         imagePullPolicy: "IfNotPresent"
         resources:
           limits:
