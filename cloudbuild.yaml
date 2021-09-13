@@ -19,6 +19,8 @@ steps:
         - '80'
         # Autoriser les personnes non-authentifiées
         - '--allow-unenthauticated'
+        - '--set-env-vars'
+        - 'SERVER_REDIS=10.14.167.75'
 
     - name: 'gcr.io/cloud-builders/docker'
       id: B
@@ -37,6 +39,8 @@ steps:
         - '--port'
         - '4000'
         - '--allow-unauthenticated'
+        - '--set-env-vars'
+        - 'SERVER_POSTGRES=35.225.51.130, USER_POSTGRES=postgres, PASSWORD_POSTGRES=postgres, DATABASE_POSTGRES=id1'
 
     - name: 'gcr.io/cloud-builders/docker'
       id: C

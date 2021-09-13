@@ -27,9 +27,11 @@ gcloud builds submit
 
 4. Aller dans Cloud Run pour lancer des contenairs à partir des images construites (Option "Créer un service")
 
-5. Aller dans le "Cloud Build" et utiliser la fonction "Créer un déclencheur" afin de créer un trigger (Intégration continue). Penser à lier le dépôt Git Hub avec GCP
+5. Aller dans le "Cloud Build" et utiliser la fonction "Créer un déclencheur" afin de créer un trigger (Intégration continue).
 
-6. Après avoir crée ce trigger et avoir lié le dépôt avec Git Hub, chaque nouveau push du projet sur GitHub déclenchera un build d'image dans GCP (voir dans le Contenair Registery)
+6. Penser à lier le dépôt Git Hub contenant le projet avec GCP (l'option "connecter un dépôt" du "Cloud Build"). On peut vérifier dans Git Hub > Settings > Application pour voir la configuration avec GCP
+
+7. Après avoir crée ce trigger et avoir lié le dépôt avec Git Hub, chaque nouveau push du projet sur GitHub déclenchera un build d'image dans GCP (voir dans le Contenair Registery)
 
 
 ## Notes
