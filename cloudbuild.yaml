@@ -23,11 +23,7 @@ steps:
     - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
       waitFor: [C]
       entrypoint: gcloud
-      args: ['run', 'deploy','worker-jr:latest','--image','gcr.io/cellular-axon-325108/worker-jr:latest','--region','europe-west3','--port','80']
-
-
-
-
+      args: ['run', 'deploy','worker-jr:latest','--image','gcr.io/cellular-axon-325108/worker-jr:latest','--region','europe-west3']
 
 
 # Push des images
