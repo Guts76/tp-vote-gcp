@@ -7,7 +7,7 @@ steps:
     - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
       waitFor: [A]
       entrypoint: gcloud
-      args: ['run', 'deploy','vote-jr:latest','--image','gcr.io/cellular-axon-325108/vote-jr:latest','--region','europe-west3','--port','80']
+      args: ['run', 'deploy','service-vote-jules','--image','gcr.io/cellular-axon-325108/vote-jr:latest','--region','europe-west3','--port','80']
 
     - name: 'gcr.io/cloud-builders/docker'
       id: B
@@ -15,7 +15,7 @@ steps:
     - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
       waitFor: [B]
       entrypoint: gcloud
-      args: ['run', 'deploy','result-jr:latest','--image','gcr.io/cellular-axon-325108/result-jr:latest','--region','europe-west3','--port','80']
+      args: ['run', 'deploy','service-result-jules','--image','gcr.io/cellular-axon-325108/result-jr:latest','--region','europe-west3','--port','4000']
 
     - name: 'gcr.io/cloud-builders/docker'
       id: C
@@ -23,7 +23,7 @@ steps:
     - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
       waitFor: [C]
       entrypoint: gcloud
-      args: ['run', 'deploy','worker-jr:latest','--image','gcr.io/cellular-axon-325108/worker-jr:latest','--region','europe-west3']
+      args: ['run', 'deploy','service-worker-jules','--image','gcr.io/cellular-axon-325108/worker-jr:latest','--region','europe-west3']
 
 
 # Push des images
