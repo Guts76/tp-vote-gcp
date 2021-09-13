@@ -1,13 +1,35 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    # COnstruction de l'image
-    args: ['build', '-t', 'gcr.io/cellular-axon-325108/result-jr:latest','./Result']
-  - name: 'gcr.io/cloud-builders/docker'
-    # COnstruction de l'image
-    args: ['build', '-t', 'gcr.io/cellular-axon-325108/vote-jr:latest','./vote']
-  - name: 'gcr.io/cloud-builders/docker'
-    # Construction de l'image
-    args: ['build', '-t', 'gcr.io/cellular-axon-325108/worker-jr:latest','./Worker']
-# Push de l'image
+    # Dans le name, on donne le contexte d'exécution ==> on ne donne pas un nom au hasard
+    - name: 'gcr.io/cloud-builders/docker'
+      id: A
+      # Construction de l'image
+      args: ['build', '-t', 'gcr.io/cellular-axon-325108/vote-jr:latest','./vote']
+    - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+      waitFor: [A]
+      entrypoint: gcloud
+      args: ['run', 'deploy','vote-jr:latest','--image','gcr.io/cellular-axon-325108/vote-jr:latest','--region','europe-west3','--port','80']
+
+    - name: 'gcr.io/cloud-builders/docker'
+      id: B
+      args: ['build', '-t', 'gcr.io/cellular-axon-325108/result-jr:latest','./Result']
+    - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+      waitFor: [B]
+      entrypoint: gcloud
+      args: ['run', 'deploy','result-jr:latest','--image','gcr.io/cellular-axon-325108/result-jr:latest','--region','europe-west3','--port','80']
+
+    - name: 'gcr.io/cloud-builders/docker'
+      id: C
+      args: ['build', '-t', 'gcr.io/cellular-axon-325108/worker-jr:latest','./Worker']
+    - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+      waitFor: [C]
+      entrypoint: gcloud
+      args: ['run', 'deploy','worker-jr:latest','--image','gcr.io/cellular-axon-325108/worker-jr:latest','--region','europe-west3','--port','80']
+
+
+
+
+
+
+# Push des images
 images: ['gcr.io/cellular-axon-325108/result-jr:latest','gcr.io/cellular-axon-325108/vote-jr:latest','gcr.io/cellular-axon-325108/worker-jr:latest']
 
