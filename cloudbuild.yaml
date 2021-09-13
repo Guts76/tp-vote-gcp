@@ -19,6 +19,7 @@ steps:
         - '80'
         # Autoriser les personnes non-authentifiées
         - '--allow-unenthauticated'
+        # Récupération des variables d'environnement
         - '--set-env-vars'
         - 'SERVER_REDIS=10.14.167.75'
 
