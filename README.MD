@@ -33,6 +33,23 @@ gcloud builds submit
 
 7. Après avoir crée ce trigger et avoir lié le dépôt avec Git Hub, chaque nouveau push du projet sur GitHub déclenchera un build d'image dans GCP (voir dans le Contenair Registery)
 
+8. Utiliser le TP-vote avec les fichier .yml pour Kubernetes et modifier la provenance des images
+
+9. Penser à créer un namespace avec la commande suivante et se placer dans le dossier Kubernetes pour exécuter le script "script.sh" :
+
+```shell
+# Création du namespace
+# Permet de récupérer notamment External-IP
+kubectl create namespace <Nom_namespace>
+
+# Exécution du script
+./scrpt.sh
+```
+
+10. Dans la barre d'adresse d'un navigateur, on peut accéder au service avec : <External_IP>:<Node_Port> (35.189.72.198:30005 pour service-vote par exemple)
+
+11. Attention, pour faire tourner un noeud, des ressources sont nécessaires pour faire tourner des pods nécessaires au bon fonctionnement de kubernetes. Ici, dans notre cas, un noeud n'est pas suffisant. On peut dans "Kubernetes Engine" utiliser l'option "ajouter un pool de noeuds" pour augmenter ses ressources
+
 
 ## Notes
 [Container_Registery] : https://console.cloud.google.com/gcr/images/cellular-axon-325108?project=cellular-axon-325108
@@ -40,6 +57,10 @@ gcloud builds submit
 [cloud_Run] : https://console.cloud.google.com/run?project=cellular-axon-325108
 
 [Cloud_Build] : https://console.cloud.google.com/cloud-build/triggers?project=cellular-axon-325108
+
+[Kubernetes_Engine] : https://console.cloud.google.com/kubernetes/list?hl=fr&project=cellular-axon-325108
+
+
 
 
 
