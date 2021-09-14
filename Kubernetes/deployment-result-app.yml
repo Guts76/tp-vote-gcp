@@ -5,7 +5,7 @@ kind: Deployment
 metadata:
   #name: result-app
   name: service-result-jules
-  #namespace: global-vote-app
+  namespace: global-vote-app
 
 spec:
   # replicas: 1
@@ -20,6 +20,7 @@ spec:
       containers:
       - name: result-app
         #image: result-app ==> Besoin de chercher l'image sur GCP
+        # On met donc l'adresse pour aller trouver l'image déjà crée
         image: gcr.io/cellular-axon-325108/result-jr:latest
         imagePullPolicy: "IfNotPresent"
         resources:

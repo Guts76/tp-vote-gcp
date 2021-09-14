@@ -4,7 +4,7 @@ kind: Deployment
 
 metadata:
 #   name: worker-app
-#   namespace: global-vote-app
+    namespace: global-vote-app
     name: service-worker-jules
 
 spec:
@@ -24,5 +24,6 @@ spec:
         resources:
           limits:
             memory: "128Mi"
-            cpu: "100m"
+            # test sur valeur cpu
+            cpu: "500m"
 
